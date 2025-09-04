@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 
 def file_hash(path):
-    """برگرداندن هش فایل"""
+    #return files
     h = hashlib.md5()
     with open(path, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -12,7 +12,7 @@ def file_hash(path):
     return h.hexdigest()
 
 def remove_duplicates(folder_path):
-    """حذف فایل‌های تکراری در پوشه"""
+    #delete duplicate files
     hashes = {}
     deleted_files = []
 
@@ -43,7 +43,7 @@ def start_removing():
     deleted_files = remove_duplicates(folder)
     messagebox.showinfo("result", f"files deleted: {len(deleted_files)}")
 
-# رابط گرافیکی
+# GUI
 root = tk.Tk()
 root.title("delete duplicate files")
 root.geometry("500x150")
