@@ -37,22 +37,22 @@ def select_folder():
 def start_removing():
     folder = folder_path_var.get()
     if not folder:
-        messagebox.showwarning("هشدار", "لطفاً یک پوشه انتخاب کنید!")
+        messagebox.showwarning("warning", "select a folder!")
         return
 
     deleted_files = remove_duplicates(folder)
-    messagebox.showinfo("نتیجه", f"تعداد فایل‌های حذف شده: {len(deleted_files)}")
+    messagebox.showinfo("result", f"files deleted: {len(deleted_files)}")
 
 # رابط گرافیکی
 root = tk.Tk()
-root.title("حذف فایل‌های تکراری")
+root.title("delete duplicate files")
 root.geometry("500x150")
 
 folder_path_var = tk.StringVar()
 
-tk.Label(root, text="مسیر پوشه:").pack(pady=10)
+tk.Label(root, text="path to folder:").pack(pady=10)
 tk.Entry(root, textvariable=folder_path_var, width=50).pack(pady=5)
-tk.Button(root, text="انتخاب پوشه", command=select_folder).pack(pady=5)
-tk.Button(root, text="حذف فایل‌های تکراری", command=start_removing, bg="red", fg="white").pack(pady=10)
+tk.Button(root, text="select folder", command=select_folder).pack(pady=5)
+tk.Button(root, text="delete duplicate files", command=start_removing, bg="red", fg="white").pack(pady=10)
 
 root.mainloop()
